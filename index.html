@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleani Control Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <span class="logo">🧹 Cleani Control Hub</span>
+      <span id="clock" class="clock"></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Summary cards -->
+    <section class="summary">
+      <div class="card" id="card-total">
+        <div class="card-label">Total Tasks</div>
+        <div class="card-value" id="total-count">0</div>
+      </div>
+      <div class="card" id="card-pending">
+        <div class="card-label">Pending</div>
+        <div class="card-value" id="pending-count">0</div>
+      </div>
+      <div class="card" id="card-done">
+        <div class="card-label">Completed</div>
+        <div class="card-value" id="done-count">0</div>
+      </div>
+    </section>
+
+    <!-- Add task form -->
+    <section class="add-task-section">
+      <h2>Add Cleaning Task</h2>
+      <form id="task-form" class="task-form">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="e.g. Vacuum living room"
+          maxlength="100"
+          autocomplete="off"
+          required
+        />
+        <select id="task-priority">
+          <option value="high">🔴 High Priority</option>
+          <option value="medium" selected>🟡 Medium Priority</option>
+          <option value="low">🟢 Low Priority</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+      </form>
+    </section>
+
+    <!-- Filter bar -->
+    <section class="filter-section">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+      <button class="btn btn-danger" id="clear-completed">Clear Completed</button>
+    </section>
+
+    <!-- Task list -->
+    <section class="task-list-section">
+      <ul id="task-list" class="task-list">
+        <!-- Tasks rendered by app.js -->
+      </ul>
+      <p id="empty-msg" class="empty-msg">No tasks yet — add one above!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Cleani Control Hub &copy; <span id="year"></span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
